@@ -148,6 +148,7 @@ function compileDirectory (dir, options, callback) {
             if (options.babelTransform && /\.js$/.test(filename)) {
               var babel = require('babel-core');
               data = babel.transform(data, {
+                filename: filename,
                 ast: false,
                 comments: false,
                 plugins: options.babelPlugins
