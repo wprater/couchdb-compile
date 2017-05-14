@@ -145,6 +145,14 @@ function compileDirectory (dir, options, callback) {
               err = e
             }
           } else {
+            if (options.babelTransform) {
+              var babel = require('babel-core');
+              data = babel.transform(data, {
+                ast: false,
+                comments: false,
+                only: /\.js$/,
+              }).code;
+            }            
             part[key] = data.toString().trim()
           }
         }
