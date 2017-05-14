@@ -145,7 +145,7 @@ function compileDirectory (dir, options, callback) {
               err = e
             }
           } else {
-            if (options.babelTransform && /\.js$/.test(filename) {
+            if (options.babelTransform && /\.js$/.test(filename)) {
               var babel = require('babel-core');
               data = babel.transform(data, {
                 ast: false,
